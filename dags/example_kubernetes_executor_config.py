@@ -106,14 +106,14 @@ try:
         # [END task_with_volume]
 
         # [START task_with_template]
-        task_with_template = PythonOperator(
-            task_id="task_with_template",
-            python_callable=print_stuff,
-            executor_config={
-                "pod_template_file": "/usr/local/airflow/pod_templates/basic_template.yaml",
-                "pod_override": k8s.V1Pod(metadata=k8s.V1ObjectMeta(labels={"release": "stable"})),
-            },
-        )
+        # task_with_template = PythonOperator(
+        #     task_id="task_with_template",
+        #     python_callable=print_stuff,
+        #     executor_config={
+        #         "pod_template_file": "/usr/local/airflow/pod_templates/basic_template.yaml",
+        #         "pod_override": k8s.V1Pod(metadata=k8s.V1ObjectMeta(labels={"release": "stable"})),
+        #     },
+        # )
         # [END task_with_template]
 
         # [START task_with_sidecar]
@@ -169,7 +169,7 @@ try:
         start_task >> volume_task >> third_task
         start_task >> other_ns_task
         start_task >> sidecar_task
-        start_task >> task_with_template
+        # start_task >> task_with_template
 except ImportError as e:
     log.warning("Could not import DAGs in example_kubernetes_executor_config.py: %s", str(e))
     log.warning("Install kubernetes dependencies with: pip install apache-airflow['cncf.kubernetes']")
