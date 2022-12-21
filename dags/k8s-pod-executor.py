@@ -232,4 +232,4 @@ with models.DAG(
         affinity={},
     )
 
-     kubernetes_min_pod >> kubernetes_full_pod
+    kubernetes_min_pod >> kubernetes_full_pod
