@@ -80,6 +80,7 @@ try:
         volume_task = PythonOperator(
             task_id="task_with_volume",
             python_callable=test_volume_mount,
+            queue = "kubernetes",
             executor_config={
                 "pod_override": k8s.V1Pod(
                     spec=k8s.V1PodSpec(
