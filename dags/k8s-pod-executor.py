@@ -42,8 +42,8 @@ with DAG(
 
     failing = KubernetesPodOperator(namespace='airflow',
                             image="ubuntu:22.04",
-                            cmds=["Python","-c"],
-                            arguments=["print('hello world')"],
+                            cmds=["python","-c"],
+                            arguments=["print('hello world from ubuntu')"],
                             labels={"foo": "bar"},
                             name="fail",
                             task_id="failing-task",
