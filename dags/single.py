@@ -93,7 +93,7 @@ try:
             },
         )
 
-        start_task >> sidecar_task >> other_ns_task
+        start_task >> [sidecar_task, other_ns_task]
 
 except ImportError as e:
     log.warning(
