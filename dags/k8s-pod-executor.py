@@ -45,7 +45,7 @@ with DAG(
                             cmds=["python","-c"],
                             arguments=["print('hello world from ubuntu')"],
                             labels={"foo": "bar"},
-                            name="fail",
+                            name="yey",
                             task_id="failing-task",
                             get_logs=True,
                             )
