@@ -40,7 +40,6 @@ try:
         default_args=default_args,
         schedule_interval=None,
         start_date=days_ago(2),
-        queue="kubernetes_queue",
         tags=['example3'],
     ) as dag:
 
