@@ -2,7 +2,7 @@ import datetime
 import pendulum
 from airflow import models
 from airflow import DAG
-from airflow.operators.empty import EmptyOperator
+from airflow.operators.dummy import DummyOperator
 from airflow.providers.cncf.kubernetes.operators.kubernetes_pod import (
     KubernetesPodOperator,
 )
@@ -28,7 +28,7 @@ with DAG(
         start_date=pendulum.datetime(2015, 12, 1)
     ) as dag:
 
-    start = EmptyOperator(task_id='run_this_first', dag=dag)
+    start = DummyOperator(task_id='run_this_first', dag=dag)
 
     passing = KubernetesPodOperator(namespace='default',
                             image="Python:3.6",
