@@ -2,6 +2,8 @@
 This is an example dag for using a Kubernetes Executor Configuration.
 """
 import logging
+import datetime
+import pendulum
 import os
 
 from airflow import DAG
@@ -21,8 +23,9 @@ try:
     with DAG(
         dag_id="single_job",
         default_args=default_args,
-        schedule_interval=None,
+        schedule=None,
         tags=["ex"],
+        start_date=pendulum.datetime(2015, 12, 1)
     ) as dag:
 
         # You can use annotations on your kubernetes pods!
