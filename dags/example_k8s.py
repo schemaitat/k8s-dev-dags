@@ -74,6 +74,7 @@ try:
             executor_config={
                 "pod_override": k8s.V1Pod(metadata=k8s.V1ObjectMeta(annotations={"test": "annotation"}))
             },
+            queue = "kubernetes"
         )
 
         # [START task_with_volume]
