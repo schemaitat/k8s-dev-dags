@@ -20,11 +20,11 @@ This is an example dag for using a Kubernetes Executor Configuration.
 """
 import logging
 import os
+import pendulum
 
 from airflow import DAG
 from airflow.example_dags.libs.helper import print_stuff
 from airflow.operators.python import PythonOperator
-from airflow.utils.dates import days_ago
 
 default_args = {
     'owner': 'airflow',
@@ -38,8 +38,8 @@ try:
     with DAG(
         dag_id='example_kubernetes_executor_config',
         default_args=default_args,
-        schedule_interval=None,
-        start_date=days_ago(2),
+        schedule=None,
+        start_date=pendulum.today('UCT').add(days=-1),
         tags=['example3'],
     ) as dag:
 

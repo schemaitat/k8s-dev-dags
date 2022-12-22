@@ -23,7 +23,7 @@ try:
     with DAG(
         dag_id="single_job",
         default_args=default_args,
-        schedule_interval=None,
+        schedule=None,
         tags=["ex"],
         start_date=pendulum.datetime(2015, 12, 1)
     ) as dag:
